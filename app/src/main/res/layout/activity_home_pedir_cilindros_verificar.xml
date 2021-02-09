@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePedirCilindrosVerificar"
+    android:background="@color/BackgroundAlternativo">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="3"
+            android:textColor="@color/primaryDarkColor"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/verdana"
+            android:gravity="center_vertical"
+            android:text="@string/elegir"
+            android:textSize="16sp"
+            app:drawableLeftCompat="@drawable/ic_check_ok_azul" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="3"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/verdana"
+            android:gravity="center_vertical"
+            android:text="@string/verificar"
+            android:textColor="@color/Gris4"
+            android:textSize="16sp"
+            app:drawableLeftCompat="@drawable/ic_next_azul" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="3"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/verdana"
+            android:gravity="center_vertical"
+            android:text="@string/solicitar"
+            android:textColor="@color/grisDefault"
+            android:textSize="16sp"
+            app:drawableLeftCompat="@drawable/ic_next_gris" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical"
+                    android:paddingEnd="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dirección de entrega"
+                        android:textColor="@color/primaryDarkColor"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvDomicilio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Domicilio"
+                        android:textColor="@color/Gris4"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Método de pago"
+                        android:textColor="@color/primaryDarkColor"
+                        android:textSize="16sp" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="0"
+                                android:layout_marginStart="25dp"
+                                app:srcCompat="@drawable/metodo_efectivo" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/verdana"
+                                android:paddingStart="30dp"
+                                android:text="@string/metodo_efectivo"
+                                android:textColor="@color/Gris4"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton"
+
+                                android:checked="true"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+                        </TableRow>
+
+
+                    </TableLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <TableLayout
+                android:id="@+id/table_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_gravity="center"
+                android:stretchColumns="0,1,2,3">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/verdana"
+                        android:text="@string/producto"
+                        android:textSize="15sp"
+                        android:textColor="@color/Gris4"
+                        android:gravity="start"/>
+                    <TextView
+
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/verdana"
+                        android:text="@string/cantidad"
+                        android:textSize="15sp"
+                        android:textColor="@color/Gris4"
+                        android:gravity="start"/>
+                    <TextView
+
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/verdana"
+                        android:text="@string/precio"
+                        android:textSize="15sp"
+                        android:textColor="@color/Gris4"
+                        android:gravity="start"/>
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/verdana"
+                        android:text="@string/subtotal"
+                        android:textSize="15sp"
+                        android:textColor="@color/Gris4"
+                        android:gravity="start"/>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_gris_azul"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@null"
+            android:backgroundTint="@null"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/tvTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:backgroundTint="@null"
+                android:gravity="center"
+                android:text="@string/total00"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/btnVerificar"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_weight="0"
+                android:background="@drawable/btn_verde"
+                android:gravity="center"
+                android:text="Pedir"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

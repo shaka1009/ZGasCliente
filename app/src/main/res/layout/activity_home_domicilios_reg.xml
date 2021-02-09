@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeDireccionesReg">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAgregarDomicilio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:divider="@drawable/divider"
+            android:dividerPadding="1dp"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:id="@+id/llEtiqueta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/etiqueta"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etEtiqueta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:hint="@string/ejemplo_etiqueta"
+                    android:inputType="textPersonName"
+                    android:maxLength="20"
+                    android:textColor="@color/primaryDarkColor"
+                    android:textSize="16sp"
+                    android:autofillHints="" />
+            </LinearLayout> <!--Etiqueta-->
+
+            <LinearLayout
+                android:id="@+id/llDomicilio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/domiclio"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvDomicilio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:hint="@string/ingresa_domicilio"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/primaryDarkColor"
+                    android:textSize="16sp"
+                    tools:ignore="TextViewEdits" />
+            </LinearLayout> <!--Domicilio-->
+
+            <LinearLayout
+                android:id="@+id/llNumExt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/confirma_numero_exterior"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etNumExt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:hint="@string/ingresa_numero_exterior"
+                    android:inputType="textPersonName"
+                    android:maxLength="20"
+                    android:textColor="@color/primaryDarkColor"
+                    android:textSize="16sp"
+                    android:autofillHints="" />
+            </LinearLayout> <!--Número Exterior-->
+
+            <LinearLayout
+                android:id="@+id/llNumInt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/numero_letra_interior"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etNumInt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:hint="@string/ingresa_numero_interior_opc"
+                    android:inputType="textPersonName"
+                    android:maxLength="20"
+                    android:textColor="@color/primaryDarkColor"
+                    android:textSize="16sp"
+                    android:autofillHints="" />
+            </LinearLayout> <!--Número Interior-->
+
+            <LinearLayout
+                android:id="@+id/llSParticular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/s_particular"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etSParticular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:maxLength="100"
+                    android:hint="@string/ejemplo_s_particular"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/primaryDarkColor"
+                    android:textSize="16sp"
+                    android:autofillHints="" />
+
+            </LinearLayout> <!--Seña Particular-->
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnAgregarDomicilio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/primaryColor"
+        android:text="@string/agregar_domicilio"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="visible"/>
+
+    <ProgressBar
+        android:id="@+id/pbAgregarDomicilio"
+        android:background="@color/transparente"
+        android:progressTint="@color/primaryDarkColor"
+        android:backgroundTint="@color/primaryDarkColor"
+        android:indeterminateTint="@color/primaryDarkColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:progress="100"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="10dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
