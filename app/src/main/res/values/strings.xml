@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ZGas Cliente</string>
     <string name="version">v1.0.1</string>
+    <string name="desarrolladores">Jesús E. Magallanes Gervacio, Alberto Medina Bernal, Beatriz E. R. Magallanes</string>
 
     <string name="pide_gas">Pide gas</string>
     <string name="gestiona_pedidos">Gestiona tus pedidos</string>

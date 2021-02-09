@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private AuthProvider mAuthProvider;
 
 
+    int dep = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //setTheme(R.style.AppTheme_Splash);
@@ -34,8 +35,11 @@ public class MainActivity extends AppCompatActivity {
         Home.mPrice = new Price();
         Home.mDirecciones = new ArrayList<>();
 
-        //Intent intent = new Intent(MainActivity.this, HomeCalificacion.class);
-        //startActivity(intent);
+        if(dep==1)
+        {
+            Intent intent = new Intent(MainActivity.this, HomeAcerca.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -44,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(mAuthProvider.existSession())
         {
+            if(dep==1)
+                return;
             //load_data();
             Intent intent = new Intent(MainActivity.this, Home.class);
             startActivity(intent);
@@ -51,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         ///* EN PRUEBA, NO QUITAR
         else
         {
+            if(dep==1)
+                return;
             Intent intent = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
         }

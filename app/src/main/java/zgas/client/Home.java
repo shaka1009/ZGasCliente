@@ -667,6 +667,19 @@ public class Home extends AppCompatActivity {
                     SleepButton();
                 break;
 
+                case R.id.acerca_de_app:
+                    if(pressButton)
+                        break;
+                    else pressButton = true;
+
+                    Intent intent = new Intent(Home.this, HomeAcerca.class);
+                    startActivity(intent);
+
+                    SleepButton();
+                    break;
+
+
+
 
                 case R.id.menu_sucursales:
                     if(pressButton)
