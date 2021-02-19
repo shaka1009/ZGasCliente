@@ -131,8 +131,11 @@ public class HomeStatusServicio extends AppCompatActivity {
             }
         });
 
-        mHandlerFinish.postDelayed(mRunnableFinish, 1000);
+        if (mHandlerFinish != null) {
+            mHandlerFinish.removeCallbacks(mRunnableFinish);
+        }
 
+        mHandlerFinish.postDelayed(mRunnableFinish, 1000);
     }
 
     private void bottomSheet()
@@ -295,8 +298,6 @@ public class HomeStatusServicio extends AppCompatActivity {
 
 
 
-
-
     private int mTimeLimitFinish = 0;
 
     private Handler mHandlerFinish = new Handler();
@@ -307,12 +308,10 @@ public class HomeStatusServicio extends AppCompatActivity {
             if (mTimeLimitFinish < 10) { // SEGUNDOS
                 mTimeLimitFinish++;
                 mHandlerFinish.postDelayed(mRunnableFinish, 1000);
-
             }
             else {
                 mHandlerFinish.removeCallbacks(mRunnableFinish);
-
-                Intent intent = new Intent (HomeStatusServicio.this, HomeCalificacion.class);
+                Intent intent = new Intent(HomeStatusServicio.this, HomeCalificacion.class);
                 startActivity(intent);
                 finish();
             }

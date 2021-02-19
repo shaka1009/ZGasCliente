@@ -112,11 +112,13 @@ public class Home extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //CARGA DE DATOS RECARGADOS
+
+        /*
         Toast.makeText(this, "Perfil: " + Client.isIsLoad() + "\n" +
                 "Precio: " + Price.isLoad() + "\n" +
                 "Domicilios: " + Direcciones.isLoad() + "\n"
                 , Toast.LENGTH_SHORT).show();
-
+        */
         new Thread(() -> {
             if(!isConnected())
             {
@@ -348,7 +350,13 @@ public class Home extends AppCompatActivity {
         })).start();
     }
 
+
+    int contador = 0;
+
     private void load_in_service() {
+        contador++;
+        Log.d("DEP", "Contador" + contador);
+
         new Thread(new Runnable(){
             @Override
             public void run()
@@ -359,16 +367,14 @@ public class Home extends AppCompatActivity {
                         if (snapshot.exists()) {
                             String status = snapshot.getValue().toString();
 
-                            /*
                             //FIXEAR
                             if(status.equals("finish"))
                             {
                                 Intent intent = new Intent(Home.this, HomeCalificacion.class);
                                 startActivity(intent);
                             }
-
-                            else */
-                                if(status.equals("create") || status.equals("new") || status.equals("accept") || status.equals("cancel"))
+                            else
+                            if(status.equals("create") || status.equals("new") || status.equals("accept") || status.equals("cancel"))
                             {
                                 Intent intent = new Intent(Home.this, HomeStatusServicio.class);
                                 startActivity(intent);
@@ -378,6 +384,8 @@ public class Home extends AppCompatActivity {
                                 mClientBookingProvider.delete(mAuthProvider.getId());
                             }
                         }
+
+                        Toast.makeText(Home.this, "LoadService", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

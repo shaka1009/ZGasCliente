@@ -24,7 +24,6 @@
         <item name="actionMenuTextColor">@color/white</item>
         <item name="titleTextColor">@color/white</item>
         <item name="android:textColorPrimary">@color/primaryDarkColor</item>
-
     </style>
 
     <style name="AppTheme.Splash" parent="AppTheme">

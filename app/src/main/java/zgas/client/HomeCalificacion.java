@@ -104,11 +104,13 @@ public class HomeCalificacion extends AppCompatActivity {
 
                     if(mHistoryBooking.getStatus().equals("terminate"))
                     {
-                        finish();
                         mClientBookingProvider.delete(mAuthProvider.getId());
+                        finish();
                     }
 
                 }
+
+                Toast.makeText(HomeCalificacion.this, "Lectura 1 vez", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -123,27 +125,39 @@ public class HomeCalificacion extends AppCompatActivity {
         if (mCalification  > 0) {
             mHistoryBooking.setCalificationDriver(mCalification);
             mHistoryBooking.setTimestamp(new Date().getTime());
+
             mHistoryBookingProvider.getHistoryBooking(mHistoryBooking.getIdHistoryBooking()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
-                        mHistoryBookingProvider.updateCalificactionDriver(mHistoryBooking.getIdHistoryBooking(), mCalification).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(HomeCalificacion.this, "La calificacion se guardo correctamente", Toast.LENGTH_LONG).show();
-                                mClientBookingProvider.updateStatus(mAuthProvider.getId(), "terminate").addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        SleepButton();
-                                        mClientBookingProvider.delete(mAuthProvider.getId());
-                                        finish();
+                        mHistoryBookingProvider.updateCalificactionDriver(mHistoryBooking.getIdHistoryBooking(), mCalification).addOnCompleteListener(taskCreate -> {
+                            if (taskCreate.isSuccessful())
+                            {
+                                mClientBookingProvider.updateStatus(mAuthProvider.getId(), "terminate").addOnCompleteListener(taskCreate1 -> {
+                                    if (taskCreate1.isSuccessful())
+                                    {
+                                        Toast.makeText(HomeCalificacion.this, "La calificacion se guardo correctamente", Toast.LENGTH_LONG).show();
+                                        new Thread(new Runnable(){
+                                            @Override
+                                            public void run()
+                                            {
+                                                mClientBookingProvider.delete(mAuthProvider.getId());
+                                                try {
+                                                    Thread.sleep(100);
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
+
+                                                finish();
+                                            }
+                                        }).start();
+
                                     }
                                 });
-
                             }
                         });
                     }
-                    finish();
+                    //finish();
                 }
 
                 @Override
