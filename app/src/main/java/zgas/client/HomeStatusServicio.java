@@ -725,7 +725,7 @@ public class HomeStatusServicio extends AppCompatActivity {
 
 
         for (String id: mDriversFoundList) {
-            mTokenProvider.getToken(id).addListenerForSingleValueEvent(new ValueEventListener() {
+            mTokenProvider.getTokenOp(id).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     mCounter = mCounter + 1;

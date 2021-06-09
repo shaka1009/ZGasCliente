@@ -143,7 +143,7 @@ public class HomeCalificacion extends AppCompatActivity {
                                             {
                                                 mClientBookingProvider.delete(mAuthProvider.getId());
                                                 try {
-                                                    Thread.sleep(100);
+                                                    Thread.sleep(1000);
                                                 } catch (InterruptedException e) {
                                                     e.printStackTrace();
                                                 }
