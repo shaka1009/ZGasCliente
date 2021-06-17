@@ -37,7 +37,7 @@ public class TokenProvider {
 
 
     public DatabaseReference getTokenOp(String idUser) {
-        return mDatabase.child("Operadores").child(idUser);
+        return FirebaseDatabase.getInstance().getReference().child("Tokens").child("Operadores").child(idUser);
     }
 
 }
